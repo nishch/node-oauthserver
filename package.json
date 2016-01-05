@@ -1,12 +1,12 @@
 {
   "name": "node-auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "a sample application for security in express.js web apps",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "nishant",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^0.8.5",
