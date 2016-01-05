@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Node Js Local Authentication Demo</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            form {
+                max-width: 450px;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Node Authentication</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            @html.block("content", function(model){
+                <div class="row">
+                    <h2 class="page-header">Welcome</h2>
+                    <div class="jumbotron">
+                        <h3>Congratulations! you are in. <a href="/logout">Logout</a></h3>    
+                    </div>
+                </div>
+            })
+        </div>
+    </body>
+</html>

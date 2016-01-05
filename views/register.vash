@@ -1,0 +1,35 @@
+@html.extend("index",function(model){
+    @html.block("content",function(model){
+        <div class="row">
+            <h2 class="page-header">Register</h2>
+            <div class="jumbotron">
+                <form class="form" action="/register" method="POST">
+                    <p>Provide following details:</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="fname" placeholder="First Name" />                                            
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="lname" placeholder="Last Name" />    
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="email" placeholder="Email" />    
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="uname" placeholder="UserName" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="pass" placeholder="Password" />    
+                    </div>
+                    <div class="form-group">
+                        <a href="/login" class="pull-left">Login</a>
+                        <input class="btn btn-primary pull-right" type="submit" value="Register" />    
+                    </div> 
+                </form>
+            </div>
+            @{
+                if(model.message)
+                    <p class="alert alert-danger">@model.message</p>
+            }
+        </div>
+    })
+})

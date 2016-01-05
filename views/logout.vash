@@ -1,0 +1,10 @@
+@html.extend("index", function(model){
+    @html.block("content", function(model){
+        <div class="row">
+            <h2 class="page-header">Thanks</h2>
+            <div class="jumbotron">
+                <h3>You have been logged out successfully. Login <a href="/login">again</a></h3>
+            </div>
+        </div>
+    })
+})
