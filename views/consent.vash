@@ -1,0 +1,17 @@
+@html.extend("index", function(model){
+    @html.block("content",function(model){
+        <div class="row">
+            <h2 class="page-header">Grant Permission</h2>
+            <div class="jumbotron">
+                <form action="/oauth/decision" method="POST">
+                    <p><em>Dear @model.user.username! @model.client.name</em> is asking your permission to access your profile. Do you allow?</p>
+                    <input type="hidden"  name="transaction_id" value="@model.transactionId" />
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Allow"/>
+                        <input class="btn btn-default" type="submit" value="Deny"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    })
+})

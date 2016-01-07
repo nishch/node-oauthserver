@@ -1,5 +1,6 @@
 var express = require("express");
 var bcrypt = require("bcrypt");
+var ensureLogin = require("connect-ensure-login");
 var auth = require("../auth");
 var userRepo = require("../data/user");
 

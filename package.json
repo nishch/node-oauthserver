@@ -11,10 +11,14 @@
   "dependencies": {
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
+    "connect-ensure-login": "^0.1.1",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
+    "oauth2orize": "^1.2.0",
     "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
+    "passport-oauth2-client-password": "^0.1.2",
     "vash": "^0.11.0"
   }
 }
