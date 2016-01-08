@@ -7,6 +7,7 @@ var login = require("connect-ensure-login");
 
 var accountController = require("./controllers/accountController");
 var oauth2Controller = require("./controllers/oauth2Controller");
+var resourceController = require("./controllers/resourceController");
 var auth = require("./auth");
 
 var app = express();
@@ -24,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(accountController);
 app.use("/oauth", oauth2Controller);
+app.use(resourceController);
 
 var port = 7676;
 

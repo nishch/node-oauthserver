@@ -1,5 +1,5 @@
 {
-  "name": "node-auth",
+  "name": "node-oauthserver",
   "version": "1.0.0",
   "description": "a sample application for security in express.js web apps",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "oauth2orize": "^1.2.0",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "passport-oauth2-client-password": "^0.1.2",
     "vash": "^0.11.0"

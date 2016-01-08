@@ -12,11 +12,9 @@ exports.saveCode = function (code, client, redirectUri, user, done) {
 }
 
 exports.find = function (code, done) {
-    var authCode = null;
-    authorizationCodes.filter(function (c) {
-        if (c.code === code)
-            authCode = c;
-    });
+    var authCode = authorizationCodes.filter(function (c) {
+        return c.code === code;
+    })[0];
 
     return done(null, authCode);
 }

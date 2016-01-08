@@ -7,10 +7,9 @@ var registeredClients = [{
 }];
 
 exports.findClient = function (clientId, done) {
-    var client = null;
-    registeredClients.filter(function (c) {
-        if (c.clientId === clientId)
-            client = c;
-    });
+    var client = registeredClients.filter(function (c) {
+        return c.clientId === clientId;
+    })[0];
+    
     return done(null, client);
 }

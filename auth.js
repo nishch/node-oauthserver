@@ -1,10 +1,14 @@
 var passport = require("passport");
 var bcrypt = require("bcrypt");
-var LocalStrategy = require("passport-local");
+
+var LocalStrategy = require("passport-local").Strategy;
 var BasicStrategy = require("passport-http").BasicStrategy;
 var ClientPasswordStrategy = require("passport-oauth2-client-password").Strategy;
+var BearerStrategy = require("passport-http-bearer").Strategy;
+
 var userRepo = require("./data/user");
 var clientRepo = require("./data/client");
+var tokenRepo = require("./data/token");
 
 passport.use(new LocalStrategy({
     usernameField: "uname",
@@ -36,13 +40,39 @@ passport.use(new BasicStrategy(function (username, password, done) {
     });
 }));
 
-passport.use(new ClientPasswordStrategy(function(clientId, clientSecret, done){
+passport.use(new ClientPasswordStrategy(function (clientId, clientSecret, done) {
     clientRepo.findClient(clientId, function (err, client) {
         if (err)
             return done(err);
         if (client.clientSecret === clientSecret)
             return done(null, client);
         return done(null, null);
+    });
+}));
+
+passport.use(new BearerStrategy(function (token, done) {
+    tokenRepo.find(token, function (err, accessToken) {
+        if (err)
+            return done(err);
+        if (accessToken.username) {
+            userRepo.findUser(accessToken.username, function (err, user) {
+                if (err)
+                    return done(err);
+                if (!user)
+                    return done(null, null);
+
+                done(null, user, { scope: "*", isUser: true })
+            });
+        } else {
+            clientRepo.findClient(accessToken.clientId, function (err, client) {
+                if (err)
+                    return done(err);
+                if (!client)
+                    return done(null, null);
+
+                done(null, client, { scope: "*", isClient: true });
+            });
+        }
     });
 }));
 
