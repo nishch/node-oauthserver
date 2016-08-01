@@ -5,6 +5,7 @@ var clientRepo = require("./data/client");
 var codeRepo = require("./data/code");
 var tokenRepo = require("./data/token");
 var oauthServer = oauth2orize.createServer();
+var login = require('connect-ensure-login');
 
 oauthServer.serializeClient(function (client, done) {
     done(null, client.clientId);
